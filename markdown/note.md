@@ -3,6 +3,9 @@
 1. 两个空格然后回车
 2. 两个回车  
 
+想通过换行退出列表需要两个回车  
+连续的两个标题只需要一个回车不需要空格  
+正常文字的换行可以通过两个空格一个回车或者两个回车
 ##标题  
 ###类Setext形式  
 1. 	标题一级
@@ -28,15 +31,15 @@
 在一行中用三个以上的`星号`、`减号`和`底线`来建立一个分隔线中间可以插入空格  
 ##链接  
 ###*行内式的链接*  
-1. 在方块括号后紧接着圆括号并插入网址链接即可
+1. 在方块括号后紧接着圆括号并插入网址链接即可  
     [This Link](http://www.baidu.com/) has no title attribute.
-2. 加入title文字，直接在括号后里最后用双引号标出
+2. 加入title文字，直接在括号后里最后用双引号标出  
     This is [an example](http://www.baidu.com/ "百度") inline link.
 3. 如果链接到同主机资源可以使用相对路径  
 
 ###*参考式的链接*
 1. 添加一个方括号
-2. 接着在文件的任意处，把标记的链接内容定义出来
+2. 接着在文件的任意处，把标记的链接内容定义出来  
     This is [an example][id] reference-style link.
     [id]: http://www.baidu.com/ "title"
     or:
@@ -45,12 +48,12 @@
     [id]: http://www.baidu.com/ 'title'   
 
 ##强调  
-1. 用一个星号或者下划线包围
-	*single asterisks*
+1. 用一个星号或者下划线包围  
+	*single asterisks*  
 	_single underscores_
-2. 用两个星号或者下划线包围
-	**double asterisks**
-	__double underscores__    
+2. 用两个星号或者下划线包围  
+	**double asterisks**  
+	__double underscores__  
 
 ##行内代码  
 用反引号将行内的代码包裹起来，例如:`printf()`  
@@ -58,7 +61,7 @@
 和链接类似  
 1. 一个感叹号
 2. 一个方括号，放入替代文字 alt
-3. 接着一个普通括号，将网址放进去，后面还可以跟title   
+3. 接着一个普通括号，将网址放进去，后面还可以跟title
 
 ##markdown支持的符号  
 1. \
@@ -72,6 +75,7 @@
 
 ---  
 需要转义的符号
+
 9. \*
 10. \#
 11. \+
