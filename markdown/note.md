@@ -49,6 +49,8 @@
 	or:
 	[id]: http://www.baidu.com/ 'title'   
 ```
+This is [an example][1] reference-style link.
+[1]: http://www.baidu.com (百度)  
 ##强调  
 1. 用一个星号或者下划线包围  
 	*single asterisks*  
