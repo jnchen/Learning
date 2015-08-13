@@ -40,7 +40,8 @@
 ###*参考式的链接*
 1. 添加一个方括号
 2. 接着在文件的任意处，把标记的链接内容定义出来  
-	```This is [an example][id] reference-style link.
+```c
+	This is [an example][id] reference-style link.
 	[id]: http://www.baidu.com/ "title"
 	or:
 	[id]: http://www.baidu.com/ (title)
