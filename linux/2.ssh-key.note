@@ -1,0 +1,17 @@
+在配置完主机名之后开始配置集群主机之间的免密码登录
+1.ssh-keygen 一路回车 生成 ~/.ssh/id_rsa.pub
+#如果想要A免密码登录B 则需要将A的公钥添加到B的~/.ssh/authorized_keys中,并且保证authorized_keys的权限为600
+2.scp root@computer2:~/.ssh/id_rsa.pub root@computer1:~/computer1/
+  scp root@computer3:~/.ssh/id_rsa.pub root@computer1:~/computer2/
+#将所有主机的公钥集中到computer1
+  cat ~/computer3/id_rsa.pub >> ~/.ssh/authorized_keys
+  cat ~/computer2/id_rsa.pub >> ~/.ssh/authorized_keys
+  cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+  rm -rf ~/computer3
+  rm -rf ~/computer2
+#将所有主机的公钥添加到computer1主机的authorized_keys中去，此时computer2，computer3 已经可以免登陆computer1
+
+  scp root@computer1:~/.ssh/authorized_keys root@computer2:~/.ssh/authorized_keys
+  scp root@computer1:~/.ssh/authorized_keys root@computer3:~/.ssh/authorized_keys
+
+#将computer1主机中的authorized_keys复制并替换掉其他两个主机的authorized_keys，此时3台主机可以互相免登陆
