@@ -1,0 +1,3 @@
+1./etc/hosts 将集群中的机器和gitlab服务器内网IP配置hostname
+2./etc/sysconfig/network 中将hostname改为和hosts中设置的一样
+3.reboot

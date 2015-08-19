@@ -1,0 +1,20 @@
+JVM的GC
+在带参数执行jar文件时，应该将主类名放在最后 。 例：
+java -cp TestJVM.jar -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:UseConcMarkSweepGC -xloggc:/root/gc_cms.log 这是使用CMS来GC，并且输出日志
+
+java -cp TestJVM.jar -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:UseParallelOldGC -xloggc:/root/gc_parallelOldGC.log 这是使用parallelOldGC来GC，并输出日志
+
+GC方式选项：
+ UseSerialGC： young-Serial old-Serial Old
+ UseParNewGC： young-ParNew old-Serial Old
+ UseConcMarkSweepGC： young-ParNew old-CMS
+ UseParallelGC： young-Parallel Scavenge old-Serial Old
+ UseParallelOldGC： young-Parallel Scavenge old-Parallel Old
+
+---------------------------------
+CMS是针对Old区域的GC方式，直接申请对象，无引用，则直接在年轻代清理掉
+   有引用的话，则会晋升至年老区  比如:将申请的对象放在集合中
+---------------------------------
+可用jstat 实时查看各区域的占用比例和GC的次数
+jstat -gcutil <pid> <time> 每隔time毫秒获取一次堆占用情况
+
