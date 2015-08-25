@@ -56,6 +56,7 @@ slave机另外安装`yum install hbase-regionserver`
 ```
 
 ###启动遇到问题
+
  `Permission denied:user=hbase,access=WRITE,inode="/":root:supergroup:drwxr-xr-x`
  hbase用户没权限在hadoop上创建目录
  
@@ -70,6 +71,27 @@ slave机另外安装`yum install hbase-regionserver`
 将`/hbase`的权限改为`hbase:hbase`
 `hadoop dfs -chown -R hbase:hbase /hbase`
 
+
+---
+`Exception in thread "main" java.lang.NoClassDefFoundError: org/apache/hadoop/hbase/protobuf/generated/MasterProtos$MasterService$BlockingInterface`用`hadoop jar`执行hbase java api 程序时出现的一系列的`NoClassDefFoundError`
+
+原因是没有引入hbase的classpath，
+
+方法
+1. 将hbase的依赖jar包全部复制到hadoop/lib/下
+
+    cp /home/hbase/lib/hbase-*.jar /home/hadoop/share/hadoop/common
+    cp /home/hbase/lib/htrace-*.jar /home/hadoop/share/hadoop/common
+    cp /home/hbase/lib/high-scale-lib-1.1.1.jar /home/hadoop/share/hadoop/common
+    cp /home/hbase/lib/metrics-core-2.2.0.jar /home/hadoop/share/hadoop/common
+    cp /home/hbase/conf/hbase-site.xml /home/hadoop/etc/hadoop
+
+注：以上包均为必须jar包。如果没有`high-scale-lib-1.1.1.jar`和`metrics-core-2.2.0.jar`Hadoop只可以将mapreduce导入hbase，但是无法使用`TableMapReduceUtil`将hbase导入mapreduce.
+2. 修改`hadoop-env.sh`添加hbase的classpath
+在`hadoop-env.sh`中添加``export HADOOP_CLASSPATH = ${HADOOP_CLASSPATH}:`hbase classpath` ``  
+**此方法消耗内存大**
+   
+ 
 
 #HBase Java Coding
 
