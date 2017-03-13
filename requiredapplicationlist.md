@@ -11,6 +11,14 @@
 * SublimeText 3 
     * Descirption: Multi-Used text editor
     * [Download](http://www.sublimetext.com/3)
+    * Package Control 
+    > `import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())`
+    
+    * Emmet
+    * ChineseLocalizations 
+    * FileDiffs
+    * MarkdownEditing
+    * Theme - Soda
     * Licsense 
 <!--    > ` 
     —– BEGIN LICENSE —–
@@ -28,15 +36,6 @@ FCCC7561 8A4A1741 68FA4223 ADCEDE07
 —— END LICENSE —— 
 `
 -->
-
-* Package Control 
-    > `import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())`
-    
-    * Emmet
-    * ChineseLocalizations 
-    * FileDiffs
-    * MarkdownEditing
-    * Theme - Soda
 * Visual Studio Code
     * Description: Code Editor
     * [Download](https://code.visualstudio.com/)
